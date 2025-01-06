@@ -3,26 +3,27 @@
 {% block title %}Lockbox{% endblock %}
 
 {% block content %}
-    <section>
-        <h2>LockBox</h2>
-        <h2>Overview</h2>
-        <p>LockBox is a user-friendly desktop application designed to secure data through encryption and expiration settings. It targets users with limited cybersecurity knowledge, offering an intuitive interface for secure data handling.</p>
-        <h3>Contributions</h3>
-        <ul>
-            <li>Implemented data encryption and decryption features.</li>
-            <li>Enabled users to set expiration dates for shared data.</li>
-            <li>Collaborated on designing an accessible and intuitive user interface.</li>
-        </ul>
-        <h3>Tools Used</h3>
-        <ul>
-            <li>Cryptography</li>
-            <li>Python PyQT</li>
-            <li>HTML/QSS</li>
-            <li>SQLite</li>
-        </ul>
-        <h3>Gallery</h3>
-        <img src="assets/images/lockbox-interface.png" alt="LockBox Interface Screenshot">
-        <img src="assets/images/lockbox-encryption.png" alt="Encryption Feature Screenshot">
-    </section>
+<section>
+    <h2>LockBox</h2>
+    <h2>Overview</h2>
+    <p>LockBox is a user-friendly desktop application designed to secure data through encryption and expiration settings. It targets users with limited cybersecurity knowledge, offering an intuitive interface for secure data handling.</p>
+    <h3>Contributions</h3>
+    <ul>
+        <li>Implemented data encryption and decryption features.</li>
+        <li>Enabled users to set expiration dates for shared data.</li>
+        <li>Collaborated on designing an accessible and intuitive user interface.</li>
+    </ul>
+    <h3>Tools Used</h3>
+    <ul>
+        <li>Cryptography</li>
+        <li>Python PyQT</li>
+        <li>HTML/QSS</li>
+        <li>SQLite</li>
+    </ul>
+    <h3>Gallery</h3>
+    <div class="gallery">
+        <img src="{{ url_for('static', filename='assets/images/lba.png') }}" alt="LockBox Interface Screenshot">
+        <img src="{{ url_for('static', filename='assets/images/lbb.png') }}" alt="Encryption Feature Screenshot">
+    </div>
+</section>
 {% endblock %}
-
