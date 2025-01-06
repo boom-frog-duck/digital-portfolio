@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Digital Portfolio{% endblock %}
+
+{% block content %}
+<section id="intro">
+    <h2>Welcome to My Digital Portfolio!</h2>
+    <p>My name is Zakeerah Perveen and this is my digital portfolio, consisting of the significant projects I had done ever since I had been introduced to the world of cybersecurity in 2023. I had begun my quests through Nanyang Polytechnic's Cybersecurity and Digital Forensics Course. Explore my projects and learn about my journey!</p>
+</section>
+<h2>Projects</h2>
+<div class="projects-container">
+    <div class="project-card">
+        <h3>Prime Supermarket</h3>
+        <p>Digitizing supermarkets with interactive customer experiences.</p>
+        <a href="{{ url_for('prime_supermarket') }}">View Project</a>
+    </div>
+    <div class="project-card">
+        <h3>Budgeting</h3>
+        <p>Helping youth users track and manage their financial goals.</p>
+        <a href="{{ url_for('budgeting') }}">View Project</a>
+    </div>
+    <div class="project-card">
+        <h3>EarthEcho</h3>
+        <p>Promoting sustainability through educational platforms.</p>
+        <a href="{{ url_for('earthecho') }}">View Project</a>
+    </div>
+    <div class="project-card">
+        <h3>LockBox</h3>
+        <p>Ensuring everyone can secure their data with ease.</p>
+        <a href="{{ url_for('lockbox') }}">View Project</a>
+    </div>
+</div>
+{% endblock %}

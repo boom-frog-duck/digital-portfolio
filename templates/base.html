@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Digital Portfolio{% endblock %}</title>
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: #121212;
+            color: #fff;
+        }
+
+        .navbar {
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #c9b037; /* Gold border for contrast */
+        }
+
+        .navbar h1 a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links li a:hover {
+            text-decoration: underline;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin: 20px auto; /* Center the image */
+            display: block;
+        }
+
+            /* Contact Me Section */
+            #contact-me {
+                background: #333;
+                text-align: center;
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            #contact-me h2 {
+                margin-bottom: 10px;
+            }
+
+            #contact-me p {
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+            }
+
+            .contact-links {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .contact-link {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: transform 0.2s ease;
+            }
+
+            .contact-link img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .contact-link:hover {
+                transform: translateY(-3px);
+            }
+
+        /* Projects Page */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px; /* Padding for project cards */
+        }
+
+        .project-card {
+            background: #222;
+            border: 2px solid #c9b037; /* Gold border for contrast */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #c9b037;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .project-card a:hover {
+            background: #b79b32;
+        }
+
+        /* Adjust padding for the content */
+        #content {
+            padding: 0 20px; /* Adds padding to left and right of the page */
+        }
+
+        h2, h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #fff; /* Make the text white for better contrast */
+        }
+
+        h3 {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Paragraph and list styling */
+        p, ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        ul {
+            padding-left: 20px; /* Add space before list items */
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Image styling */
+        img {
+            display: block;
+            margin: 20px auto; /* Centers the images */
+            max-width: 100%; /* Ensures images are responsive */
+            border-radius: 8px; /* Rounded corners for the images */
+        }
+
+        /* Add background and padding to the sections for better separation */
+        section {
+            background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-top: 2px solid #c9b037; /* Gold border for contrast */
+        }
+
+        /* Add padding to the intro section and projects container */
+        #intro, h2 {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Optional: you can adjust padding for better appearance */
+        #intro {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <h1><a href="{{ url_for('projects') }}">Zakeerah Perveen</a></h1>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('projects') }}">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Header Image -->
+    <img src="{{ url_for('static', filename='assets/images/cybersec.jpg') }}" alt="Cybersecurity" class="header-image">
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Contact Me Section -->
+    <section id="contact-me">
+        <h2>Contact Me</h2>
+        <p>If you’d like to connect or discuss opportunities, feel free to reach out via email or LinkedIn:</p>
+        <div class="contact-links">
+            <a href="mailto:zakeerahperveenj@gmail.com" class="contact-link">
+                <img src="{{ url_for('static', filename='assets/images/email-icon.png') }}" alt="Email Icon">
+                <span>Email me: zakeerahperveenj@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/dummy" target="_blank" class="contact-link">
+                <img src="{{ url_for('static', filename='assets/images/linkedin-icon.png') }}" alt="LinkedIn Icon">
+                <span>View my LinkedIn Profile!</span>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Zakeerah Perveen. All rights reserved.</p>
+    </footer>
+</body>
+</html>
