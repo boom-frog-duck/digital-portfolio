@@ -1,29 +1,99 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budgeting Project</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+    }
 
-{% block title %}Budgeting{% endblock %}
+    .carousel img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
 
-{% block content %}
-<section>
-    <h2>Budgeting</h2>
-    <h2>Overview</h2>
-    <p>This web application was designed to help youth users manage their financial decisions through trackers, educational content, and goal-setting features.</p>
-    <h3>Contributions</h3>
-    <ul>
-        <li>Designed account management features, including user registration and login functionalities.</li>
-        <li>Developed a dashboard and tracker allowing users to tag expenses and income with categories.</li>
-        <li>Implemented comparisons between user goals and actual financial performance.</li>
-    </ul>
-    <h3>Tools Used</h3>
-    <ul>
-        <li>Python Flask</li>
-        <li>JavaScript</li>
-        <li>HTML/CSS</li>
-        <li>SQLAlchemy</li>
-    </ul>
-    <h3>Gallery</h3>
-    <div class="gallery">
-        <img src="{{ url_for('static', filename='assets/images/budgetinghome.png') }}" alt="Home Screenshot">
-        <img src="{{ url_for('static', filename='assets/images/budgeting2.png') }}" alt="Budgeting Screenshot">
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-title">
+      <img src="../assets/images/logo.png" alt="Logo" class="logo" />
+      <h1>Zakeerah Perveen</h1>
     </div>
-</section>
-{% endblock %}
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <h2>Budgeting App</h2>
+    <div class="carousel">
+      <button class="arrow left" onclick="prevSlide()">&#8592;</button>
+      <img id="carousel-image" src="../assets/images/budgetinghome.png" alt="Budgeting Home" />
+      <button class="arrow right" onclick="nextSlide()">&#8594;</button>
+    </div>
+    <p>A mobile-first web app aimed at helping youth track their spending, understand their financial habits, and achieve budgeting goals. This project combines UI simplicity with effective data visualization.</p>
+  </main>
+
+  <footer>
+    <p>© 2025 Zakeerah Perveen. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const images = [
+      "../assets/images/budgetinghome.png",
+      "../assets/images/budgeting2.png"
+    ];
+
+    let currentIndex = 0;
+    const carouselImg = document.getElementById("carousel-image");
+
+    function showSlide(index) {
+      currentIndex = (index + images.length) % images.length;
+      carouselImg.src = images[currentIndex];
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+  </script>
+</body>
+</html>

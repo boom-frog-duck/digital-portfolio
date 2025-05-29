@@ -1,29 +1,99 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LockBox Project</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+    }
 
-{% block title %}Lockbox{% endblock %}
+    .carousel img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
 
-{% block content %}
-<section>
-    <h2>LockBox</h2>
-    <h2>Overview</h2>
-    <p>LockBox is a user-friendly desktop application designed to secure data through encryption and expiration settings. It targets users with limited cybersecurity knowledge, offering an intuitive interface for secure data handling.</p>
-    <h3>Contributions</h3>
-    <ul>
-        <li>Implemented data encryption and decryption features.</li>
-        <li>Enabled users to set expiration dates for shared data.</li>
-        <li>Collaborated on designing an accessible and intuitive user interface.</li>
-    </ul>
-    <h3>Tools Used</h3>
-    <ul>
-        <li>Cryptography</li>
-        <li>Python PyQT</li>
-        <li>HTML/QSS</li>
-        <li>SQLite</li>
-    </ul>
-    <h3>Gallery</h3>
-    <div class="gallery">
-        <img src="{{ url_for('static', filename='assets/images/lba.png') }}" alt="LockBox Interface Screenshot">
-        <img src="{{ url_for('static', filename='assets/images/lbb.png') }}" alt="Encryption Feature Screenshot">
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-title">
+      <img src="../assets/images/logo.png" alt="Logo" class="logo" />
+      <h1>Zakeerah Perveen</h1>
     </div>
-</section>
-{% endblock %}
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <h2>LockBox</h2>
+
+    <div class="carousel">
+      <button class="arrow left" onclick="prevSlide()">&#8592;</button>
+      <img id="carousel-image" src="../assets/images/lba.png" alt="Lockbox" />
+      <button class="arrow right" onclick="nextSlide()">&#8594;</button>
+    </div>
+
+    <p>LockBox is a security-first application that provides encryption-based file storage and secure data sharing for users. I led the frontend development and collaborated with backend engineers to implement strong authentication and user control systems.</p>
+  </main>
+
+  <footer>
+    <p>© 2025 Zakeerah Perveen. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const images = [
+      "../assets/images/lba.jpg",
+      "../assets/images/lbb.jpg"
+    ];
+
+    let currentIndex = 0;
+    const carouselImg = document.getElementById("carousel-image");
+
+    function showSlide(index) {
+      currentIndex = (index + images.length) % images.length;
+      carouselImg.src = images[currentIndex];
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+  </script>
+</body>
+</html>

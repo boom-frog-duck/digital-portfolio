@@ -1,26 +1,32 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Supermarket Project</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+<body>
+  <header class="navbar">
+    <div class="logo-title">
+      <img src="../assets/images/logo.png" alt="Logo" class="logo">
+      <h1>Zakeerah Perveen</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
 
-{% block title %}Prime Supermarket{% endblock %}
+  <main class="project-detail">
+    <h2>Prime Supermarket</h2>
+    <img src="../assets/images/prime.jpg" alt="Prime Supermarket" class="project-banner">
+    <p>This project focuses on modernizing a traditional supermarket with a digital interface, making it more user-friendly and accessible. I developed a web-based system to help streamline shopping, enhance customer experience, and integrate modern UI design.</p>
+  </main>
 
-{% block content %}
-    <section>
-        <h2>Prime Supermarket</h2>
-        <h2>Overview</h2>
-        <p>
-            This project focused on creating a website to digitalize the business and provide an interactive, immersive online experience to enhance customer engagement while aligning with sustainable principles. In this group project, I developed customer-facing pages, including the login/sign-up pages, forgot password pages, and the "My Profile" page, where customers can update their particulars, delete their account, or access their transaction history.
-        </p>
-        <h3>Contributions</h3>
-        <ul>
-            <li>Designed and implemented secure login and account recovery features, including encryption for sensitive data.</li>
-            <li>Developed the "My Profile" page for customers to manage their accounts and view transaction history.</li>
-            <li>Collaborated on improving user experience and accessibility across customer-facing pages.</li>
-        </ul>
-        <h3>Tools Used</h3>
-        <ul>
-            <li>Python Flask</li>
-            <li>SQLAlchemy</li>
-            <li>HTML/CSS</li>
-        </ul>
-        <h3>No Gallery for this project. Sorry!</h3>
-        </section>
-{% endblock %}
+  <footer>
+    <p>© 2025 Zakeerah Perveen. All rights reserved.</p>
+  </footer>
+</body>
+</html>
